@@ -46,6 +46,9 @@ app.get('/', (req, res) => {
     res.send("Welcome to Job Search Tracker");
 });
 
+//Require Jobs api routes 
+require('./app/routes/jobs.routes')(app);
+
 // listen for requests
 app.listen(3000, () => {
     

@@ -1,22 +1,22 @@
-// module.exports = (app) => {
-//     const notes = require('../controllers/job.controller.js');
 
-//     // Create a new Note
-//     app.post('/notes', notes.create);
-
-//     // Retrieve all Notes
-//     app.get('/notes', notes.findAll);
-
-//     // Retrieve a single Note with noteId
-//     app.get('/notes/:noteId', notes.findOne);
-
-//     // Update a Note with noteId
-//     app.put('/notes/:noteId', notes.update);
-
-//     // Delete a Note with noteId
-//     app.delete('/notes/:noteId', notes.delete);
-// }
 
 module.exports = (app) => {
-    const jobs = require('') //place controllers here
+    const jobs = require('../controllers/job.controller.js'); 
+
+    //Create new Job
+    app.post('/jobs', jobs.create);
+        //TODO
+  
+    //Retreave all Jobs
+    app.get('/jobs', jobs.findAll);
+  //Retreive 1 Job
+    //app.get('/jobs/:jobId', jobs.fineOne);
+    //Update selected job
+    //app.put('jobs/:JobId', jobs.update);
+
+    //Delete Select Job
+//app.delete('jobs/:JobId', jobs.delete);
+
+  
+
 }
