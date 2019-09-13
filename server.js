@@ -11,6 +11,23 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 
+// Configuring the database with Mongo! 
+const dbConfig = require('./config/db.config.js');
+const mongoose = require('mongoose');
+
+mongoose.Promise = global.Promise; //Good practice?? Probably not
+
+// Connecting to the database
+mongoose.connect(dbConfig.url, {
+    useNewUrlParser: true // stop the stupid error!
+    
+}).then(() => {
+    console.log("Successfully connected to the database");    
+}).catch(err => {
+    console.log('Could not connect to the database. Exiting now...', err);
+    process.exit();
+});
+
 
 
 
