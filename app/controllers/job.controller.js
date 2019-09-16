@@ -1,5 +1,5 @@
 const Job = require('../models/job.model.js');
-
+const date = new Date();
 // Create and Save a new Job
 exports.create = (req, res) => {
     // Validate request
@@ -20,7 +20,7 @@ exports.create = (req, res) => {
         company: req.body.company,
         contact: req.body.contact || "Unknown",
         contactEmail: req.body.contactEmail || "Unkown",
-        contacted: String || new Date() //Change this to date or something clearer
+        dateContacted: String || date
     });
 
 

@@ -7,7 +7,7 @@ const JobSchema = mongoose.Schema({
     company:{type : String, default:''},
     contact: {type:String, default:''},
     contactEmail: {type:String, default:''},
-    contacted: String //need to learn more about dates in mongo, auto apply date via js for now
+    dateContacted: String 
 },{
     timestamps: true //I guess this is nice too!
 })
