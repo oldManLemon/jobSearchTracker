@@ -5,7 +5,7 @@ module.exports = (app) => {
 
     //Create new Job
     app.post('/jobs', jobs.create);
-        //TODO
+        
   
     //Retreave all Jobs
     app.get('/jobs', jobs.findAll);

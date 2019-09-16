@@ -14,11 +14,4 @@ const JobSchema = mongoose.Schema({
 
 module.exports = mongoose.model('Job', JobSchema);
 
-// const NoteSchema = mongoose.Schema({
-//     title: String,
-//     content: String
-// }, {
-//     timestamps: true
-// });
 
-// module.exports = mongoose.model('Note', NoteSchema);
