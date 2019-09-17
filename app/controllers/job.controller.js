@@ -1,6 +1,6 @@
 const Job = require('../models/job.model.js');
 const strDate = require('../components/helperFunctions.js')
-var date = strDate.stringyDate();
+var date = strDate.stringyDate(); //if date is required
 
 
 
