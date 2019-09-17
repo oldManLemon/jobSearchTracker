@@ -1,5 +1,9 @@
 const Job = require('../models/job.model.js');
-const date = new Date(); //Write a better date funciton to stringify date
+const strDate = require('../components/helperFunctions.js')
+var date = strDate.stringyDate();
+
+
+
 // Create and Save a new Job
 exports.create = (req, res) => {
     // Validate request
@@ -20,7 +24,7 @@ exports.create = (req, res) => {
         company: req.body.company,
         contact: req.body.contact || "Unknown",
         contactEmail: req.body.contactEmail || "Unkown",
-        dateContacted: String || date
+        dateContacted: req.body.dateContacted || date
     });
 
 
