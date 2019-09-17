@@ -1,5 +1,5 @@
 const Job = require('../models/job.model.js');
-const date = new Date();
+const date = new Date(); //Write a better date funciton to stringify date
 // Create and Save a new Job
 exports.create = (req, res) => {
     // Validate request
@@ -107,8 +107,7 @@ exports.update = (req, res) => {
             res.send(job);
         })
         .catch(err => {
-            if (err.kind === 'ObjectId') 
-            {
+            if (err.kind === 'ObjectId') {
                 return res.status(404).send({
                     message: "Job not found with id " + req.params.jobId
                 });
@@ -122,7 +121,28 @@ exports.update = (req, res) => {
 
 };
 
-    // Delete a single job
-    // exports.delete = (req, res) => {
-    //     //TODO
-    // };
+// Delete a single job
+exports.delete = (req, res) => {
+    Job.findByIdAndRemove(req.params.jobId)
+        .then(job => {
+            if (!job) {
+                return res.status(404).send({
+                    message: "Job not found with id " + req.params.jobId
+                });
+
+            }//end of if
+            res.send(
+                { message: "Job successfully deleted" }
+            );
+        })
+        .catch(err => {
+            if (err.kind === 'ObjectId') {
+                return res.status(404).send({
+                    message: "Job not found with id " + req.params.jobId
+                });
+            }
+            return res.status(500).send({
+                message: "Error deleting job with id " + req.params.jobId
+            });
+        })
+};
