@@ -52,15 +52,34 @@ exports.findAll = (req, res) => {
 
 // Get a single job
 exports.findOne = (req, res) => {
-//TODO
-};
+    Job.findById(req.params.jobId)
+    .then(job => {
+        if(!job) {
+            return res.status(404).send({
+                message: "Job not found with id " + req.params.jobId
+            });            
+        }
+        res.send(job);
+    }).catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Job not found with id " + req.params.jobId
+            });                
+        }
+        return res.status(500).send({
+            message: "Error retrieving job with id " + req.params.jobId
+        });
+    });
 
-// Update a single job
-exports.update = (req, res) => {
-//TODO
-};
+}; //Postman test past
+        
 
-// Delete a single job
-exports.delete = (req, res) => {
-//TODO
-};
+    // Update a single job
+    exports.update = (req, res) => {
+        //TODO
+    };
+
+    // Delete a single job
+    // exports.delete = (req, res) => {
+    //     //TODO
+    // };
