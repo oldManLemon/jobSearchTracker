@@ -11,7 +11,7 @@ module.exports = (app) => {
     app.get('/jobs/:jobId', jobs.findOne);
 
     //Update selected job
-    //app.put('jobs/:jobId', jobs.update);
+    app.put('/jobs/:jobId', jobs.update);
 
     //Delete Select Job
 //app.delete('jobs/:JobId', jobs.delete);
